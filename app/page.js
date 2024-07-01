@@ -1,112 +1,114 @@
+import { Button } from "@/components/ui/button";
+import { Book, BookOpen, Library, List, NotebookPen, Search, StickyNote, UploadIcon } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col items-center">
+      <div className="min-h-screen flex flex-col justify-center text-center pt-20 container bg-slate-100">
+        <h1 className="text-prim font-bold text-4xl drop-shadow-lg">Transform Your Study Notes: Summarize Your Files by Objectives in Seconds!</h1>
+        <p className="text-sec font-semibold text-xl mt-4 drop-shadow-md">Effortlessly convert your lecture notes, articles, and study materials into concise summaries organized by your chosen subjects. Boost your learning efficiency and make studying easier than ever!</p>
+        <Button variant="main" size="main" className="mt-8 font-2xl">Get Started</Button>
+        <p className="mt-4 text-gray-700 font-semibold">Join thousands of students simplifying their studies today!</p>
+      </div>
+      
+      <div className="w-full flex flex-col text-center container py-12">
+        <h2 className="text-3xl text-prim font-bold">How StudyScribe impoves your learing experience</h2>
+
+        <div className="flex flex-col mt-12 gap-y-8">
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <Book size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Stop Reading Over And Over</h3>
+            <p className="text-sec font-semibold">Stop reading over and over the same pages to create own summaries. Conentrate on the important things.</p>
+          </div>
+
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <Search size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Filter For Important Things</h3>
+            <p className="text-sec font-semibold">Tell StudyScribe which learning objectives you have to learn. StudyScribe will filter the important things.</p>
+          </div>
+
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <BookOpen size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Custom Learning Content</h3>
+            <p className="text-sec font-semibold">StudyScribe will create customized learning content based on your needs.</p>
+          </div>
+
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <Library size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">All in One Place</h3>
+            <p className="text-sec font-semibold">Manage everything in one place. Don't use multiple tools to achieve the same thing.</p>
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="w-full bg-slate-50 flex flex-col text-center container py-12">
+        <h2 className="text-3xl text-prim font-bold">What You Can Do With StudyScribe</h2>
+
+        <div className="flex flex-col mt-12 gap-y-8">
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <UploadIcon size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Upload Your Notes</h3>
+            <p className="text-sec font-semibold">Upload your study materials, lecture notes, or any other text you want to summarize.</p>
+          </div>
+
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <List size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Add Your Learning Objectives</h3>
+            <p className="text-sec font-semibold">Add your own learning objectives or other goals based on your preferences.</p>
+          </div>
+
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <NotebookPen size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Create Summaries</h3>
+            <p className="text-sec font-semibold">Create summaries based on your learning objectives and other customized points.</p>
+          </div>
+
+          <div className="flex flex-col items-center shadow-lg py-10 px-6 rounded-xl">
+            <StickyNote size={64} className="text-sec"/>
+            <h3 className="text-prim font-semibold text-xl mt-2 mb-2">Create Flashcards</h3>
+            <p className="text-sec font-semibold">Create flashcards based on your learning objectives and other customized points.</p>
+          </div>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className="w-full bg-white flex flex-col text-center container py-12">
+        <h2 className="text-3xl text-prim font-bold">Pricing</h2>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="flex flex-col mt-12 gap-y-8">
+          <div className="flex flex-col p-10 w-full border-2 border-prim rounded-xl drop-shadow-xl">
+            <p className="text-2xl text-sec font-semibold">Trial</p>
+            <p className="text-gray-800 font-light text-sm">Test if StudyScribe matches your needs</p>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+            <p className="text-sec font-semibold mt-6 text-2xl">Free <span className="font-normal text-base">(One-Time Use)</span></p>
+            <ul className="list-disc list-prim mt-4 text-left mx-4 font-light text-gray-700">
+              <li>Upload and summarize 3 files</li>
+              <li>Add 2 learning objectives</li>
+              <li>Explore core-features</li>
+              <li>No credit card required</li>
+            </ul>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+            <Button variant="main" size="main" className="mt-8 font-2xl">Try Now</Button>
+          </div>
+        </div>
+
+        <div className="flex flex-col mt-12 gap-y-8">
+          <div className="flex flex-col p-10 w-full border-2 border-prim rounded-xl drop-shadow-xl">
+            <p className="text-2xl text-sec font-semibold">Pay-Per-Summarization</p>
+            <p className="text-gray-800 font-light text-sm">Don't pay monthly for another service</p>
+
+            <p className="text-sec font-semibold mt-6 text-2xl">$5 <span className="font-normal text-base">per summarization</span></p>
+            <ul className="list-disc list-prim mt-4 text-left mx-4 font-light text-gray-700">
+              <li>Upload up to 20 files</li>
+              <li>Detailed and accurate objective-specific summariess</li>
+              <li>Unlimited flash cards</li>
+              <li>No subscription requried</li>
+            </ul>
+
+            <Button variant="main" size="main" className="mt-8 font-2xl">Try Now</Button>
+          </div>
+        </div>
+
       </div>
     </main>
   );
