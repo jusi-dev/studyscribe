@@ -13,7 +13,7 @@ export const Header = () => {
     return (
         <div className="fixed w-screen z-50">
             {/* Header and Menu Container */}
-            <div className={`bg-slate-200 rounded-3xl min-w-[80vw] px-4 flex flex-col items-center mx-8 mt-10 border-b-2 border-prim transition-all duration-300 ease-in-out ${isMenuOpen ? 'py-4' : 'py-2'}`}>
+            <div className={`bg-slate-200 rounded-3xl min-w-[80vw] px-4 flex flex-col items-center mx-8 mt-8 border-b-2 border-prim transition-all duration-300 ease-in-out ${isMenuOpen ? 'py-4' : 'py-2'}`}>
                 {/* Header Content */}
                 <div className="w-full flex justify-between items-center">
                     <div className="flex items-center gap-2">

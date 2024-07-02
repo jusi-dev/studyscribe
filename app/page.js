@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Book, BookOpen, Library, List, NotebookPen, Search, StickyNote, UploadIcon } from "lucide-react";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 export default function Home() {
   return (
@@ -109,6 +116,57 @@ export default function Home() {
           </div>
         </div>
 
+      </div>
+
+      <div className="w-full bg-slate-100 flex flex-col text-center container py-12">
+        <h2 className="text-3xl text-prim font-bold">See StudyScribe In Action</h2>
+
+        <div className="flex flex-col mt-12 gap-y-8">
+          <div className="w-full bg-gray-500 h-44 text-white flex items-center justify-center">Video Here</div>
+        </div>
+      </div>
+
+      <div className="w-full bg-slate-100 flex flex-col text-center container py-12">
+        <h2 className="text-3xl text-prim font-bold">FAQ</h2>
+
+        <div className="flex flex-col mt-12 gap-y-8">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-sec">Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-sec">Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-sec">Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-sec">Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-sec">Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
       </div>
     </main>
   );
