@@ -66,43 +66,9 @@ export async function getGPT4Response(formData) {
         ],
     });
 
-    await openai.beta.threads.runs
-        .stream(thread.id, {
-            assistant_id: assistant.id,
-        })
-        .on("textCreated", () => console.log("assistant >"))
-        .on("toolCallCreated", (event) => console.log("assistant " + event.type))
-        .on("messageDone", async (event) => {
-            if (event.content[0].type === "text") {
-                const { text } = event.content[0];
-                const { annotations } = text;
-                const citations = [];
-
-                let index = 0;
-                for (let annotation of annotations) {
-                    text.value = text.value.replace(annotation.text, "[" + index + "]");
-                    const { file_citation } = annotation;
-                    if (file_citation) {
-                        const citedFile = await openai.files.retrieve(file_citation.file_id);
-                        citations.push("[" + index + "]" + citedFile.filename);
-                    }
-                    index++;
-                }
-            }
-        })
-
-    // Wait 1 minute
-    await new Promise((resolve) => setTimeout(resolve, 60000));
-    
-    await openai.beta.threads.messages.create(thread.id,
-        {
-            role: "user",
-            content: "Now create a word document with the summary of the file and only output this."
-        }
-    )
-
-    // Create summary document and return it
     return new Promise((resolve, reject) => {
+        let responseText;
+        let citations;
         openai.beta.threads.runs
             .stream(thread.id, {
                 assistant_id: assistant.id,
@@ -110,19 +76,77 @@ export async function getGPT4Response(formData) {
             .on("textCreated", () => console.log("assistant >"))
             .on("toolCallCreated", (event) => console.log("assistant " + event.type))
             .on("messageDone", async (event) => {
-                const fileId = event.attachments[0].file_id;
-                // Wait 10 seconds
-                await new Promise((resolve) => setTimeout(resolve, 10000));
-                console.log("Getting file")
-                const {fileBuffer, fileName} = await getFileAndCovert(fileId);
-                console.log("Filename: ", fileName)
-                await openai.beta.threads.del(thread.id)
-                resolve({
-                    fileName,
-                    fileBuffer
-                });
+                if (event.content[0].type === "text") {
+                    const { text } = event.content[0];
+                    const { annotations } = text;
+                    const citations = [];
+
+                    let index = 0;
+                    for (let annotation of annotations) {
+                        text.value = text.value.replace(annotation.text, "[" + index + "]");
+                        const { file_citation } = annotation;
+                        if (file_citation) {
+                            const citedFile = await openai.files.retrieve(file_citation.file_id);
+                            citations.push("[" + index + "]" + citedFile.filename);
+                        }
+                        index++;
+                    }
+
+                    console.log('text.value: ', text);
+                    responseText = text.value;
+                    // Remove content before first --- and after last ---
+                    if (responseText.includes('---')) {
+                        const parts = responseText.split('---');
+                        // Remove first and last parts if they exist
+                        if (parts.length > 2) {
+                            parts.shift(); // Remove first part
+                            parts.pop(); // Remove last part
+                        }
+                        responseText = parts.join('---').trim();
+                    }
+                    resolve({
+                        text: responseText,
+                        citations: citations
+                    });
+                }
+
+                resolve();
             })
             .on('error', reject);
     });
+
+    // // Wait 1 minute
+    // await new Promise((resolve) => setTimeout(resolve, 60000));
+    
+    // await openai.beta.threads.messages.create(thread.id,
+    //     {
+    //         role: "user",
+    //         content: "Now create a word document with the summary of the file with maximum 250 words and only output this."
+    //     }
+    // )
+
+    // // Create summary document and return it
+    // return new Promise((resolve, reject) => {
+    //     openai.beta.threads.runs
+    //         .stream(thread.id, {
+    //             assistant_id: assistant.id,
+    //         })
+    //         .on("textCreated", () => console.log("assistant >"))
+    //         .on("toolCallCreated", (event) => console.log("assistant " + event.type))
+    //         .on("messageDone", async (event) => {
+    //             const fileId = event.attachments[0].file_id;
+    //             // Wait 10 seconds
+    //             await new Promise((resolve) => setTimeout(resolve, 10000));
+    //             console.log("Getting file")
+    //             const {fileBuffer, fileName} = await getFileAndCovert(fileId);
+    //             console.log("Filename: ", fileName)
+    //             await openai.beta.threads.del(thread.id)
+    //             resolve({
+    //                 fileName,
+    //                 fileBuffer
+    //             });
+    //         })
+    //         .on('error', reject);
+    // });
     
 }

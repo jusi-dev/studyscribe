@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,38 +14,49 @@ export const Header = () => {
     };
 
     return (
-        <div className="fixed w-screen z-50">
-            {/* Header and Menu Container */}
-            <div className={`bg-blue-500 rounded-3xl min-w-[80vw] px-4 flex flex-col items-center mx-8 mt-8 border-b-2 border-sec transition-all duration-300 ease-in-out text-white ${isMenuOpen ? 'py-4' : 'py-2'}`}>
-                {/* Header Content */}
-                <div className="w-full flex justify-between items-center">
-                    <Link href={"/"}>
-                        <div className="flex items-center gap-2">
-                            <Image src="/studyscribe.png" width={75} height={75} />
-                            <p className="text-white font-bold text-2xl">StudyScribe</p>
-                        </div>
+        <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b">
+            <div className="container mx-auto px-4">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center space-x-2">
+                        <Image src="/studyscribe.png" alt="StudyScribe Logo" width={40} height={40} className="w-auto h-8" />
+                        <span className="font-bold text-xl text-gray-900">StudyScribe</span>
                     </Link>
-                    <div onClick={toggleMenu} className="cursor-pointer">
-                        {/* Burger Menu Icon */}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu">
-                            <line x1="4" x2="20" y1="12" y2="12"></line>
-                            <line x1="4" x2="20" y1="6" y2="6"></line>
-                            <line x1="4" x2="20" y1="18" y2="18"></line>
-                        </svg>
-                    </div>
+
+                    {/* Desktop Navigation */}
+                    <nav className="hidden md:flex items-center space-x-8">
+                        <Link href="/" className="nav-link">Home</Link>
+                        <Link href="#features" className="nav-link">Features</Link>
+                        <Link href="#pricing" className="nav-link">Pricing</Link>
+                        <Link href="/dashboard">
+                            <Button className="btn-primary">Get Started</Button>
+                        </Link>
+                    </nav>
+
+                    {/* Mobile Menu Button */}
+                    <button className="md:hidden" onClick={toggleMenu}>
+                        {isMenuOpen ? (
+                            <X className="h-6 w-6 text-gray-600" />
+                        ) : (
+                            <Menu className="h-6 w-6 text-gray-600" />
+                        )}
+                    </button>
                 </div>
-                {/* Slide-out Menu */}
-                <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'} w-full`}>
-                    <ul className="mt-2 flex flex-col items-center text-white">
-                        <li className="py-2"><a href="#home" className=" font-bold text-lg">Home</a></li>
-                        <li className="py-2"><a href="/dashboard" className=" font-bold text-lg">Dashboard</a></li>
-                        <li className="py-2"><a href="#about" className=" font-bold text-lg">About</a></li>
-                        <li className="py-2"><a href="#services" className=" font-bold text-lg">Services</a></li>
-                        <li className="py-2"><a href="#contact" className=" font-bold text-lg">Contact</a></li>
-                    </ul>
-                </div>
+
+                {/* Mobile Navigation */}
+                {isMenuOpen && (
+                    <nav className="md:hidden py-4 border-t">
+                        <div className="flex flex-col space-y-4">
+                            <Link href="/" className="nav-link">Home</Link>
+                            <Link href="#features" className="nav-link">Features</Link>
+                            <Link href="#pricing" className="nav-link">Pricing</Link>
+                            <Link href="/dashboard">
+                                <Button className="btn-primary w-full">Get Started</Button>
+                            </Link>
+                        </div>
+                    </nav>
+                )}
             </div>
-        </div>
+        </header>
     );
 };
-
