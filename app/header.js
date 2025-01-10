@@ -19,7 +19,7 @@ export const Header = () => {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2">
-                        <Image src="/studyscribe.png" alt="StudyScribe Logo" width={40} height={40} className="w-auto h-8" />
+                        <Image src="/studyscribe.png" alt="StudyScribe Logo" width={50} height={50} className="w-auto h-10" />
                         <span className="font-bold text-xl text-gray-900">StudyScribe</span>
                     </Link>
 
