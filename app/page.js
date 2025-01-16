@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Star, Users } from "lucide-react";
+import { ArrowRight, Blocks, Bot, CheckCircle2, Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,12 +30,12 @@ export default function Home() {
             </div>
             <div className="mt-12 flex items-center justify-center gap-8">
               <div className="flex items-center">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="ml-2 text-gray-600">10k+ Users</span>
+                <Bot className="h-5 w-5 text-primary" />
+                <span className="ml-2 text-gray-600">Powered by AI</span>
               </div>
               <div className="flex items-center">
-                <Star className="h-5 w-5 text-primary" />
-                <span className="ml-2 text-gray-600">4.9/5 Rating</span>
+                <Blocks className="h-5 w-5 text-primary" />
+                <span className="ml-2 text-gray-600">Backed by Solana</span>
               </div>
             </div>
           </div>
