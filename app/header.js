@@ -20,7 +20,7 @@ export const Header = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2">
                         <Image src="/studyscribe.png" alt="StudyScribe Logo" width={50} height={50} className="w-auto h-10" />
-                        <span className="font-bold text-xl text-gray-900">StudyScribe</span>
+                        <span className="font-bold text-xl text-gray-900">StudAI</span>
                     </Link>
 
                     {/* Desktop Navigation */}

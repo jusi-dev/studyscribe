@@ -20,13 +20,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/dashboard">
                 <Button className="btn-primary">
-                  Get Started Free
+                  See our Demo
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button variant="outline" className="btn-secondary">
+              {/* <Button variant="outline" className="btn-secondary">
                 See How It Works
-              </Button>
+              </Button> */}
             </div>
             <div className="mt-12 flex items-center justify-center gap-8">
               <div className="flex items-center">
@@ -47,7 +47,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Students Love StudyScribe
+              Why Students Love StudAI
             </h2>
             <p className="text-xl text-gray-600">
               Powerful features to enhance your learning experience
@@ -93,7 +93,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How StudyScribe Works
+              How StudAI Works
             </h2>
             <p className="text-xl text-gray-600">
               Three simple steps to better study notes
@@ -142,7 +142,7 @@ export default function Home() {
               What Students Say
             </h2>
             <p className="text-xl text-gray-600">
-              Join thousands of satisfied students
+              Join a new revolution in studying smarter
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "StudyScribe has completely transformed how I prepare for exams. The summaries are incredibly helpful!"
+                "StudAI has completely transformed how I prepare for exams. The summaries are incredibly helpful!"
               </p>
               <div className="flex items-center">
                 <div>
@@ -175,7 +175,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "I save so much time using StudyScribe. The AI summaries are accurate and well-organized."
+                "I save so much time using StudAI. The AI summaries are accurate and well-organized."
               </p>
               <div className="flex items-center">
                 <div>
@@ -215,11 +215,11 @@ export default function Home() {
               Ready to Transform Your Study Notes?
             </h2>
             <p className="text-xl mb-8">
-              Join thousands of students who are already studying smarter with StudyScribe.
+              Join a new way for students to study smarter with StudAI.
             </p>
             <Link href="/dashboard">
               <Button className="bg-white text-primary hover:bg-gray-100">
-                Get Started Free
+                Test our Demo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
